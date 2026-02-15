@@ -2,14 +2,12 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bigdies | Digital Agency</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="gradient-bg"></div>
 
     <nav>
         <div class="logo">Bigdies</div>
@@ -18,60 +16,48 @@
     <section id="page1" class="active">
         <div class="hero-content">
             <h1>Welcome to our website</h1>
-            <p>हम आपके आइडियाज को डिजिटल हकीकत में बदलते हैं।</p>
+            <p>Hum aapke ideas ko digital hakeekat mein badalte hain.</p>
             <button class="btn-primary" onclick="navigateTo('page2')">Get Started</button>
         </div>
     </section>
 
     <section id="page2">
         <div class="container">
+            <button class="btn-back" onclick="navigateTo('page1')">← Back</button>
             <h2 class="section-title">Meet Our Team</h2>
             <div class="team-grid">
-                <div class="card">
-                    <h3>Atharv</h3>
-                    <p class="role">Website Design & Development</p>
-                </div>
-                <div class="card">
-                    <h3>Gourav</h3>
-                    <p class="role">Communication & Management</p>
-                </div>
-                <div class="card">
-                    <h3>Sifran</h3>
-                    <p class="role">Accounts & Finance</p>
-                </div>
+                <div class="card"><h3>Atharv</h3><p>Web Design</p></div>
+                <div class="card"><h3>Gourav</h3><p>Management</p></div>
+                <div class="card"><h3>Sifran</h3><p>Finance</p></div>
             </div>
-
-            <h2 class="section-title">Our Process</h2>
-            <div class="flow-container">
-                <div class="flow-step"><span>1</span> Strategy</div>
-                <div class="flow-step"><span>2</span> Design</div>
-                <div class="flow-step"><span>3</span> Development</div>
-                <div class="flow-step"><span>4</span> Delivery</div>
-            </div>
-
+            
             <div class="cta-box">
-                <button class="btn-secondary" onclick="navigateTo('page3')">Which type of help do you need?</button>
+                <button class="btn-primary" onclick="navigateTo('page3')">Which help do you need?</button>
             </div>
         </div>
     </section>
 
     <section id="page3">
         <div class="form-container">
+            <button class="btn-back" onclick="navigateTo('page2')">← Back</button>
             <h2>Contact Us</h2>
-            <form action="https://submit-form.com/your-form-id" method="POST" id="contact-form">
+            <form action="https://submit-form.com/your-id" method="POST">
                 <input type="text" name="name" placeholder="Full Name" required>
-                <select name="help_type" required>
-                    <option value="" disabled selected>Which type of help?</option>
+                
+                <select name="help_type" id="helpSelect" onchange="checkOther(this)" required>
+                    <option value="" disabled selected>Select Help Type</option>
                     <option value="web">Web Development</option>
-                    <option value="management">Management</option>
-                    <option value="finance">Finance</option>
+                    <option value="poster">Poster Design</option>
+                    <option value="other">Other (Something else)</option>
                 </select>
+
+                <input type="text" id="otherInput" name="other_help" placeholder="Write your requirement here..." style="display:none;">
+
                 <input type="tel" name="mobile" placeholder="Mobile Number" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <textarea name="message" placeholder="Your Message (Optional)"></textarea>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Message (Optional)"></textarea>
                 <button type="submit" class="btn-primary">Send Message</button>
             </form>
-            <div id="success-msg" style="display:none; color: #00ff88; margin-top: 20px;">धन्यवाद! आपका संदेश भेज दिया गया है।</div>
         </div>
     </section>
 
