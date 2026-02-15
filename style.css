@@ -1,145 +1,89 @@
 :root {
-    --primary: #6366f1;
-    --bg-dark: #0f172a;
-    --glass: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --primary: #1e1e1e; /* Dark professional color */
+    --cream: #fdfaf5;   /* Soft Cream Background */
+    --card-bg: #ffffff;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: white;
+    background-color: var(--cream);
+    color: #333;
     overflow-x: hidden;
-    min-height: 100vh;
 }
 
-/* Background Gradient Animation */
-.gradient-bg {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
-    background: radial-gradient(circle at 0% 0%, #1e1b4b 0%, #0f172a 50%),
-                radial-gradient(circle at 100% 100%, #312e81 0%, #0f172a 50%);
-}
-
-nav {
-    padding: 30px 50px;
-    position: fixed;
-    top: 0; width: 100%; z-index: 100;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
+/* Mobile Friendly Settings */
 section {
     display: none;
     min-height: 100vh;
-    padding: 100px 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
+    padding: 80px 20px;
+    width: 100%;
 }
 
-section.active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    transform: translateY(0);
+section.active { display: flex; flex-direction: column; align-items: center; }
+
+.container, .form-container {
+    width: 100%;
+    max-width: 600px;
 }
 
-/* Hero Section */
-.hero-content h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 800;
-    background: linear-gradient(to right, #fff, #94a3b8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-}
-
-.btn-primary, .btn-secondary {
-    padding: 16px 32px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
+/* Back Button Style */
+.btn-back {
+    background: none; border: none;
+    color: var(--primary);
     font-weight: 600;
-    transition: 0.3s;
-    margin-top: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    align-self: flex-start;
 }
 
+/* Buttons */
 .btn-primary {
     background: var(--primary);
     color: white;
-    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-/* Glass Cards */
+/* Hero Section Responsive */
+.hero-content { text-align: center; }
+.hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; line-height: 1.2; }
+
+/* Cards Layout */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1000px;
+    grid-template-columns: 1fr; /* Mobile default: 1 column */
+    gap: 15px;
+    margin: 20px 0;
 }
 
 .card {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    padding: 40px;
-    border-radius: 24px;
-    text-align: center;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
 }
 
-/* Flow Section */
-.flow-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 50px 0;
-}
-
-.flow-step {
-    padding: 15px 25px;
-    background: var(--glass-border);
-    border-radius: 50px;
-    font-size: 0.9rem;
-}
-
-/* Form Styles */
-.form-container {
-    background: var(--glass);
-    padding: 40px;
-    border-radius: 24px;
-    width: 100%;
-    max-width: 500px;
-    border: 1px solid var(--glass-border);
-}
-
+/* Form Inputs */
 input, select, textarea {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--glass-border);
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    color: white;
+    background: white;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    nav { padding: 20px; }
-    .hero-content h1 { font-size: 3rem; }
+/* Desktop View (Tablets & Laptops) */
+@media (min-width: 768px) {
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-content h1 { font-size: 4rem; }
 }
